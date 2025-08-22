@@ -9,6 +9,7 @@ import { getCareerGuidance } from '../../backend/services/aiService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { User, Target, Lightbulb } from 'lucide-react';
+import ReactMarkdown from "react-markdown";
 
 const CareerGuidance = () => {
   // Component state management
@@ -16,6 +17,12 @@ const CareerGuidance = () => {
   const [guidance, setGuidance] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  
+function convertMarkup(guidance){
+  const text = guidance;
+  return <ReactMarkdown>{text}</ReactMarkdown>
+}
+
 
   /**
    * Handles the career guidance request
@@ -36,6 +43,8 @@ const CareerGuidance = () => {
       // Call AI service to generate career guidance
       const result = await getCareerGuidance(userInput);
       setGuidance(result);
+     // convertMarkup(guidance);
+      console.log(result)
     } catch (err) {
       setError(err.message || 'Failed to generate career guidance. Please try again.');
     } finally {

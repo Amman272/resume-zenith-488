@@ -1,8 +1,3 @@
-/**
- * AI Service Module
- * Contains all functions that interact with the Google Gemini AI API
- * Handles career guidance, resume analysis, learning paths, and interview generation
- */
 
 import { model } from '../config/gemini.js';
 
@@ -132,18 +127,18 @@ Format the response as a numbered list with each channel clearly separated.`;
           skillLevel: ''
         };
       } else if (line.includes('youtube.com') || line.includes('youtu.be')) {
-        // Extract YouTube URL
+        //  YouTube URL
         const urlMatch = line.match(/(https?:\/\/[^\s]+)/);
         if (urlMatch) {
           currentChannel.link = urlMatch[1];
         }
       } else if (line.trim()) {
-        // Add to description
+        // description
         currentChannel.description += (currentChannel.description ? ' ' : '') + line.trim();
       }
     }
     
-    // Add the last channel
+    // last channel
     if (Object.keys(currentChannel).length > 0) {
       channels.push(currentChannel);
     }
