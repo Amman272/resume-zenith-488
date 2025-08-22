@@ -20,7 +20,58 @@ const CareerGuidance = () => {
   
 function convertMarkup(guidance){
   const text = guidance;
-  return <ReactMarkdown>{text}</ReactMarkdown>
+  return     <ReactMarkdown
+      components={{
+        h2: ({ node, ...props }) => (
+          <div
+            style={{
+              border: "2px solid #1976d2",
+              borderRadius: "8px",
+              padding: "12px 16px",
+              margin: "16px 0",
+              backgroundColor: "#e3f2fd",
+              fontSize: "1.5rem",
+              fontWeight: "bold",
+              color: "#1976d2",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
+            }}
+          >
+            <span {...props} />
+          </div>
+        ),
+        h3: ({ node, ...props }) => (
+          <div
+            style={{
+              borderLeft: "4px solid #1976d2",
+              padding: "8px 12px",
+              margin: "12px 0",
+              backgroundColor: "#f5faff",
+              fontSize: "1.25rem",
+              fontWeight: "600",
+              color: "#0d47a1",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+              borderRadius: "4px"
+            }}
+          >
+            <span {...props} />
+          </div>
+        ),
+        strong: ({ node, ...props }) => (
+          <span
+            style={{
+              backgroundColor: "#bbdefb",
+              color: "#0d47a1",
+              fontWeight: "bold",
+              padding: "2px 6px",
+              borderRadius: "4px"
+            }}
+            {...props}
+          />
+        ),
+      }}
+    >
+      {guidance}
+    </ReactMarkdown>
 }
 
 
@@ -171,8 +222,9 @@ function convertMarkup(guidance){
                   </p>
                 );
               })} */}
+            {convertMarkup(guidance)}
               <div className="prose max-w-none">
-  <ReactMarkdown>{guidance}</ReactMarkdown>
+  {/* <ReactMarkdown>{guidance}</ReactMarkdown> */}
 </div>
 
             </div>
