@@ -19,59 +19,229 @@ const CareerGuidance = () => {
   const [error, setError] = useState('');
   
 function convertMarkup(guidance){
-  const text = guidance;
-  return     <ReactMarkdown
-      components={{
-        h2: ({ node, ...props }) => (
-          <div
-            style={{
-              border: "2px solid #1976d2",
-              borderRadius: "8px",
-              padding: "12px 16px",
-              margin: "16px 0",
-              backgroundColor: "#e3f2fd",
-              fontSize: "1.5rem",
-              fontWeight: "bold",
-              color: "#1976d2",
-              boxShadow: "0 2px 5px rgba(0,0,0,0.1)"
-            }}
-          >
-            <span {...props} />
-          </div>
-        ),
-        h3: ({ node, ...props }) => (
-          <div
-            style={{
-              borderLeft: "4px solid #1976d2",
-              padding: "8px 12px",
-              margin: "12px 0",
-              backgroundColor: "#f5faff",
-              fontSize: "1.25rem",
-              fontWeight: "600",
-              color: "#0d47a1",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
-              borderRadius: "4px"
-            }}
-          >
-            <span {...props} />
-          </div>
-        ),
-        strong: ({ node, ...props }) => (
-          <span
-            style={{
-              backgroundColor: "#bbdefb",
-              color: "#0d47a1",
-              fontWeight: "bold",
-              padding: "2px 6px",
-              borderRadius: "4px"
-            }}
-            {...props}
-          />
-        ),
-      }}
-    >
-      {guidance}
-    </ReactMarkdown>
+  return (
+    <div style={{ 
+      fontFamily: "'Inter', sans-serif",
+      lineHeight: "1.7",
+      color: "#2d3748"
+    }}>
+      <ReactMarkdown
+        components={{
+          // Main headings - Large feature boxes
+          h1: ({ node, ...props }) => (
+            <div
+              style={{
+                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                borderRadius: "16px",
+                padding: "24px 32px",
+                margin: "32px 0 24px 0",
+                color: "white",
+                fontSize: "2rem",
+                fontWeight: "700",
+                textAlign: "center",
+                boxShadow: "0 10px 25px rgba(102, 126, 234, 0.3)",
+                border: "1px solid rgba(255,255,255,0.1)"
+              }}
+            >
+              <span {...props} />
+            </div>
+          ),
+          
+          // Section headings - Prominent blue boxes
+          h2: ({ node, ...props }) => (
+            <div
+              style={{
+                background: "linear-gradient(135deg, #4299e1 0%, #3182ce 100%)",
+                borderRadius: "12px",
+                padding: "20px 24px",
+                margin: "28px 0 20px 0",
+                color: "white",
+                fontSize: "1.5rem",
+                fontWeight: "600",
+                boxShadow: "0 8px 20px rgba(66, 153, 225, 0.25)",
+                border: "1px solid rgba(255,255,255,0.15)",
+                position: "relative"
+              }}
+            >
+              <div style={{
+                position: "absolute",
+                top: "-2px",
+                left: "-2px",
+                right: "-2px",
+                bottom: "-2px",
+                background: "linear-gradient(135deg, #4299e1, #3182ce)",
+                borderRadius: "12px",
+                zIndex: -1,
+                opacity: 0.1
+              }} />
+              <span {...props} />
+            </div>
+          ),
+          
+          // Subsection headings - Elegant left-border style
+          h3: ({ node, ...props }) => (
+            <div
+              style={{
+                borderLeft: "6px solid #4299e1",
+                backgroundColor: "#f7fafc",
+                padding: "16px 20px",
+                margin: "24px 0 16px 0",
+                fontSize: "1.25rem",
+                fontWeight: "600",
+                color: "#2d3748",
+                borderRadius: "0 8px 8px 0",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
+                border: "1px solid #e2e8f0",
+                borderLeft: "6px solid #4299e1"
+              }}
+            >
+              <span {...props} />
+            </div>
+          ),
+          
+          // Smaller headings - Clean minimal style
+          h4: ({ node, ...props }) => (
+            <div
+              style={{
+                backgroundColor: "#edf2f7",
+                padding: "12px 16px",
+                margin: "20px 0 12px 0",
+                fontSize: "1.1rem",
+                fontWeight: "600",
+                color: "#4a5568",
+                borderRadius: "6px",
+                border: "1px solid #cbd5e0"
+              }}
+            >
+              <span {...props} />
+            </div>
+          ),
+          
+          // Bold text - Highlighted badges
+          strong: ({ node, ...props }) => (
+            <span
+              style={{
+                backgroundColor: "#bee3f8",
+                color: "#2b6cb0",
+                fontWeight: "600",
+                padding: "4px 8px",
+                borderRadius: "6px",
+                fontSize: "0.95em",
+                border: "1px solid #90cdf4"
+              }}
+              {...props}
+            />
+          ),
+          
+          // Paragraphs - Better spacing and readability
+          p: ({ node, ...props }) => (
+            <p
+              style={{
+                margin: "16px 0",
+                fontSize: "1rem",
+                lineHeight: "1.7",
+                color: "#4a5568"
+              }}
+              {...props}
+            />
+          ),
+          
+          // Lists - Enhanced styling
+          ul: ({ node, ...props }) => (
+            <ul
+              style={{
+                margin: "16px 0",
+                paddingLeft: "24px",
+                listStyleType: "none"
+              }}
+              {...props}
+            />
+          ),
+          
+          li: ({ node, ...props }) => (
+            <li
+              style={{
+                margin: "8px 0",
+                padding: "8px 12px",
+                backgroundColor: "#f8fafc",
+                borderRadius: "6px",
+                border: "1px solid #e2e8f0",
+                position: "relative",
+                paddingLeft: "32px"
+              }}
+            >
+              <span
+                style={{
+                  position: "absolute",
+                  left: "12px",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  width: "8px",
+                  height: "8px",
+                  backgroundColor: "#4299e1",
+                  borderRadius: "50%"
+                }}
+              />
+              <span {...props} />
+            </li>
+          ),
+          
+          // Code blocks - Professional styling
+          code: ({ node, inline, ...props }) => (
+            inline ? (
+              <code
+                style={{
+                  backgroundColor: "#f1f5f9",
+                  color: "#475569",
+                  padding: "2px 6px",
+                  borderRadius: "4px",
+                  fontSize: "0.9em",
+                  fontFamily: "'Fira Code', monospace",
+                  border: "1px solid #cbd5e0"
+                }}
+                {...props}
+              />
+            ) : (
+              <pre
+                style={{
+                  backgroundColor: "#1a202c",
+                  color: "#e2e8f0",
+                  padding: "20px",
+                  borderRadius: "8px",
+                  margin: "20px 0",
+                  overflow: "auto",
+                  fontSize: "0.9em",
+                  fontFamily: "'Fira Code', monospace",
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
+                }}
+              >
+                <code {...props} />
+              </pre>
+            )
+          ),
+          
+          // Blockquotes - Inspirational styling
+          blockquote: ({ node, ...props }) => (
+            <blockquote
+              style={{
+                borderLeft: "4px solid #38b2ac",
+                backgroundColor: "#f0fff4",
+                padding: "16px 20px",
+                margin: "20px 0",
+                fontStyle: "italic",
+                color: "#2d3748",
+                borderRadius: "0 8px 8px 0",
+                boxShadow: "0 2px 8px rgba(56, 178, 172, 0.1)"
+              }}
+              {...props}
+            />
+          )
+        }}
+      >
+        {guidance}
+      </ReactMarkdown>
+    </div>
+  );
 }
 
 
