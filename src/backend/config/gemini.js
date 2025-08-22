@@ -7,7 +7,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // API key for Google Generative AI - In production, this should be in environment variables
-const API_KEY = "AIzaSyDMUeqElSxNq4pnu-5dGz1gFe7AtCrwexI";
+const API_KEY = "";
 
 // Initialize the Google Generative AI client
 const genAI = new GoogleGenerativeAI(API_KEY);
