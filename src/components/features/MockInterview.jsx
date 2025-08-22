@@ -172,12 +172,12 @@ const MockInterview = () => {
     <div className="animate-fade-in">
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <div className="bg-primary-100 p-4 rounded-full">
-            <MessageSquare className="w-8 h-8 text-primary-600" />
+          <div className="feature-icon bg-blue-100">
+            <MessageSquare className="w-6 h-6 text-blue-600" />
           </div>
         </div>
         <h2 className="heading-secondary">AI-Powered Mock Interview</h2>
-        <p className="text-body text-center max-w-2xl mx-auto">
+        <p className="text-body text-center max-w-2xl mx-auto mb-0">
           Practice your interview skills with AI-generated questions tailored to your target role. 
           Get detailed feedback and improve your interview performance.
         </p>
@@ -271,11 +271,11 @@ const MockInterview = () => {
       </div>
 
       {/* Interview Tips */}
-      <div className="card bg-blue-50">
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mb-8">
         <h3 className="heading-tertiary text-blue-800">Interview Preparation Tips</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">Before You Start:</h4>
+            <h4 className="font-medium text-blue-700 mb-2 text-sm">Before You Start:</h4>
             <ul className="text-sm text-blue-600 space-y-1">
               <li>• Find a quiet, well-lit space</li>
               <li>• Have your resume and notes ready</li>
@@ -284,7 +284,7 @@ const MockInterview = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">During the Interview:</h4>
+            <h4 className="font-medium text-blue-700 mb-2 text-sm">During the Interview:</h4>
             <ul className="text-sm text-blue-600 space-y-1">
               <li>• Take a moment to think before answering</li>
               <li>• Be specific and provide concrete examples</li>
@@ -309,7 +309,7 @@ const MockInterview = () => {
         {/* Progress Header */}
         <div className="card mb-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-primary-900">
+            <h2 className="text-lg font-semibold text-gray-900">
               Mock Interview - {jobRole}
             </h2>
             <div className="text-sm text-gray-600">
@@ -393,8 +393,8 @@ const MockInterview = () => {
         </div>
 
         {/* Interview Tips */}
-        <div className="card bg-yellow-50">
-          <h4 className="font-semibold text-yellow-800 mb-2">💡 Answering Tips:</h4>
+        <div className="warning-box">
+          <h4 className="font-medium text-yellow-800 mb-2 text-sm">💡 Answering Tips:</h4>
           <ul className="text-sm text-yellow-700 space-y-1">
             <li>• Use the STAR method: Situation, Task, Action, Result</li>
             <li>• Be specific with examples and quantify results when possible</li>
@@ -412,12 +412,12 @@ const MockInterview = () => {
   const renderEvaluationPage = () => (
     <div className="animate-fade-in">
       <div className="text-center mb-8">
-        <div className="flex justify-center mb-4">
-          <div className="bg-green-100 p-4 rounded-full">
-            <CheckCircle className="w-8 h-8 text-green-600" />
+        <div className="flex justify-center mb-6">
+          <div className="feature-icon bg-green-100">
+            <CheckCircle className="w-6 h-6 text-green-600" />
           </div>
         </div>
-        <h2 className="heading-secondary text-green-700">Interview Completed!</h2>
+        <h2 className="heading-secondary text-green-600">Interview Completed!</h2>
         <p className="text-body text-center">
           Great job completing your mock interview for {jobRole}. 
           Review your responses and feedback below.
@@ -451,23 +451,23 @@ const MockInterview = () => {
           <LoadingSpinner message="Evaluating your interview performance..." />
         </div>
       ) : evaluation ? (
-        <div className="card animate-slide-up">
+        <div className="card">
           <div className="card-header">
-            <h3 className="heading-tertiary text-purple-700 flex items-center gap-2">
+            <h3 className="heading-tertiary text-purple-600 flex items-center gap-2">
               <Star className="w-5 h-5" />
               AI Interview Evaluation & Feedback
             </h3>
           </div>
           
-          <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
-            <div className="prose max-w-none">
+          <div className="bg-purple-50 p-4 rounded-md border border-purple-200">
+            <div className="prose max-w-none text-sm">
               {evaluation.split('\n').map((paragraph, index) => {
                 if (paragraph.trim() === '') return null;
                 
                 if (paragraph.match(/^\d+\.|^[•\-\*]|^#{1,3}|\*\*.*\*\*/)) {
                   return (
                     <div key={index} className="mb-4">
-                      <h4 className="font-bold text-purple-800">{paragraph.replace(/[#*]/g, '')}</h4>
+                      <h4 className="font-semibold text-purple-800 text-base">{paragraph.replace(/[#*]/g, '')}</h4>
                     </div>
                   );
                 }

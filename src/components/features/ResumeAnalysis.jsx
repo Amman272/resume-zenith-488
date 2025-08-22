@@ -96,12 +96,12 @@ const ResumeAnalysis = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <div className="bg-primary-100 p-4 rounded-full">
-            <FileText className="w-8 h-8 text-primary-600" />
+          <div className="feature-icon bg-blue-100">
+            <FileText className="w-6 h-6 text-blue-600" />
           </div>
         </div>
         <h2 className="heading-secondary">AI Resume Analyzer</h2>
-        <p className="text-body text-center max-w-2xl mx-auto">
+        <p className="text-body text-center max-w-2xl mx-auto mb-0">
           Upload your resume and get detailed AI-powered feedback on structure, content, 
           and suggestions for improvement to make your resume stand out to employers.
         </p>
@@ -135,10 +135,10 @@ const ResumeAnalysis = () => {
 
         {/* File Information Display */}
         {fileInfo && (
-          <div className="bg-green-50 p-4 rounded-lg border border-green-200 mb-4">
+          <div className="success-box mb-6">
             <div className="flex items-center gap-2 mb-2">
-              <CheckCircle className="w-5 h-5 text-green-600" />
-              <span className="font-semibold text-green-800">File Selected Successfully</span>
+              <CheckCircle className="w-4 h-4 text-green-600" />
+              <span className="font-medium text-green-800">File Selected Successfully</span>
             </div>
             <div className="text-sm text-green-700 space-y-1">
               <p><strong>Name:</strong> {fileInfo.name}</p>
@@ -194,15 +194,15 @@ const ResumeAnalysis = () => {
 
       {/* Analysis Results */}
       {analysis && (
-        <div className="card animate-slide-up">
+        <div className="card">
           <div className="card-header">
-            <h3 className="heading-tertiary text-blue-700">
+            <h3 className="heading-tertiary text-blue-600">
               📊 Your Resume Analysis & Recommendations
             </h3>
           </div>
           
-          <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-            <div className="prose max-w-none">
+          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+            <div className="prose max-w-none text-sm">
               {/* Format the analysis text with proper structure */}
               {analysis.split('\n').map((paragraph, index) => {
                 if (paragraph.trim() === '') return null;
@@ -211,7 +211,7 @@ const ResumeAnalysis = () => {
                 if (paragraph.match(/^\d+\.|^[•\-\*]|^#{1,3}|^\*\*.*\*\*$/)) {
                   return (
                     <div key={index} className="mb-4">
-                      <h4 className="font-bold text-blue-800 text-lg">{paragraph.replace(/[#*]/g, '')}</h4>
+                      <h4 className="font-semibold text-blue-800 text-base">{paragraph.replace(/[#*]/g, '')}</h4>
                     </div>
                   );
                 }
@@ -220,7 +220,7 @@ const ResumeAnalysis = () => {
                 if (paragraph.match(/^[\s]*[-•]/)) {
                   return (
                     <div key={index} className="mb-2 ml-4">
-                      <p className="text-blue-700">{paragraph}</p>
+                      <p className="text-blue-700 text-sm">{paragraph}</p>
                     </div>
                   );
                 }
@@ -235,8 +235,8 @@ const ResumeAnalysis = () => {
           </div>
 
           {/* Action Items */}
-          <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-            <h4 className="font-semibold text-yellow-800 mb-2">🎯 Action Items:</h4>
+          <div className="mt-6 warning-box">
+            <h4 className="font-medium text-yellow-800 mb-2 text-sm">🎯 Action Items:</h4>
             <ul className="text-sm text-yellow-700 space-y-1">
               <li>• Review and implement the suggested improvements</li>
               <li>• Update your resume based on the feedback provided</li>
@@ -249,11 +249,11 @@ const ResumeAnalysis = () => {
       )}
 
       {/* Tips Section */}
-      <div className="card bg-gray-50">
+      <div className="info-box">
         <h3 className="heading-tertiary">Resume Analysis Tips</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2 text-sm">
               <CheckCircle className="w-4 h-4 text-green-600" />
               Best Practices:
             </h4>
@@ -266,7 +266,7 @@ const ResumeAnalysis = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2 flex items-center gap-2">
+            <h4 className="font-medium text-gray-800 mb-2 flex items-center gap-2 text-sm">
               <AlertCircle className="w-4 h-4 text-orange-600" />
               Common Issues to Avoid:
             </h4>

@@ -121,36 +121,36 @@ const JobMarketInsights = () => {
       </div>
       
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse">
+        <table className="data-table">
           <thead>
-            <tr className="bg-purple-50">
-              <th className="border border-purple-200 p-3 text-left font-semibold text-purple-800">
+            <tr>
+              <th>
                 Role
               </th>
-              <th className="border border-purple-200 p-3 text-left font-semibold text-purple-800">
+              <th>
                 Entry Level
               </th>
-              <th className="border border-purple-200 p-3 text-left font-semibold text-purple-800">
+              <th>
                 Mid Level
               </th>
-              <th className="border border-purple-200 p-3 text-left font-semibold text-purple-800">
+              <th>
                 Senior Level
               </th>
             </tr>
           </thead>
           <tbody>
             {salaries.map((salary, index) => (
-              <tr key={index} className="hover:bg-purple-25">
-                <td className="border border-purple-200 p-3 font-medium text-gray-800">
+              <tr key={index}>
+                <td className="font-medium text-gray-800">
                   {salary.role}
                 </td>
-                <td className="border border-purple-200 p-3 text-gray-700">
+                <td>
                   {salary.entry_level}
                 </td>
-                <td className="border border-purple-200 p-3 text-gray-700">
+                <td>
                   {salary.mid_level}
                 </td>
-                <td className="border border-purple-200 p-3 text-gray-700">
+                <td>
                   {salary.senior_level}
                 </td>
               </tr>
@@ -159,7 +159,7 @@ const JobMarketInsights = () => {
         </table>
       </div>
       
-      <div className="mt-4 p-3 bg-purple-50 rounded-lg">
+      <div className="mt-6 bg-purple-50 border border-purple-200 rounded-lg p-4">
         <p className="text-sm text-purple-700">
           💡 <strong>Note:</strong> Salary ranges are approximate and vary based on location, 
           company size, industry, and individual experience. These figures represent general market trends.
@@ -208,12 +208,12 @@ const JobMarketInsights = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <div className="bg-primary-100 p-4 rounded-full">
-            <TrendingUp className="w-8 h-8 text-primary-600" />
+          <div className="feature-icon bg-blue-100">
+            <TrendingUp className="w-6 h-6 text-blue-600" />
           </div>
         </div>
         <h2 className="heading-secondary">Real-Time Job Market Insights</h2>
-        <p className="text-body text-center max-w-2xl mx-auto">
+        <p className="text-body text-center max-w-2xl mx-auto mb-0">
           Stay ahead of the curve with current job market trends, salary data, 
           and emerging opportunities across different industries and regions.
         </p>
@@ -302,7 +302,7 @@ const JobMarketInsights = () => {
           {/* Filter Display */}
           <div className="bg-gray-50 p-4 rounded-lg border">
             <p className="text-sm text-gray-600">
-              <strong>Showing insights for:</strong> {filters.industry} • {filters.region}
+              <span className="font-medium">Showing insights for:</span> {filters.industry} • {filters.region}
             </p>
           </div>
 
@@ -317,7 +317,7 @@ const JobMarketInsights = () => {
               {renderSalaryTrends(insights.salary_trends)}
               
               {/* Market Analysis Summary */}
-              <div className="card bg-gray-50">
+              <div className="info-box">
                 <div className="card-header">
                   <h3 className="heading-tertiary text-gray-800 flex items-center gap-2">
                     <Users className="w-5 h-5" />
@@ -353,7 +353,7 @@ const JobMarketInsights = () => {
           )}
 
           {/* Action Items */}
-          <div className="card bg-blue-50">
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mb-8">
             <h3 className="heading-tertiary text-blue-800">🎯 Next Steps Based on Market Insights</h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -382,7 +382,7 @@ const JobMarketInsights = () => {
       )}
 
       {/* Information Card */}
-      <div className="card bg-yellow-50">
+      <div className="warning-box">
         <h3 className="heading-tertiary text-yellow-800">📈 About This Data</h3>
         <p className="text-yellow-700 mb-4">
           Our job market insights are generated using AI analysis of current industry trends, 

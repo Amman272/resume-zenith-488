@@ -115,14 +115,32 @@ function convertMarkup(guidance){
   return (
     <div className="animate-fade-in">
       {/* Header Section */}
-      <div className="text-center mb-8">
-        <div className="flex justify-center mb-4">
-          <div className="bg-primary-100 p-4 rounded-full">
-            <Lightbulb className="w-8 h-8 text-primary-600" />
+      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+          <div style={{ 
+            width: '3rem', 
+            height: '3rem', 
+            padding: '0.75rem', 
+            borderRadius: '50%', 
+            backgroundColor: '#dbeafe' 
+          }}>
+            <Lightbulb style={{ width: '1.5rem', height: '1.5rem', color: '#2563eb' }} />
           </div>
         </div>
-        <h2 className="heading-secondary">AI Career Guidance Chatbot</h2>
-        <p className="text-body text-center max-w-2xl mx-auto">
+        <h2 style={{ 
+          fontSize: '1.875rem', 
+          fontWeight: '600', 
+          color: '#111827', 
+          marginBottom: '1.5rem' 
+        }}>AI Career Guidance Chatbot</h2>
+        <p style={{ 
+          color: '#6b7280', 
+          lineHeight: '1.75', 
+          fontSize: '1rem', 
+          textAlign: 'center', 
+          maxWidth: '42rem', 
+          margin: '0 auto' 
+        }}>
           Get personalized career advice based on your skills, interests, and goals. 
           Our AI will analyze your input and provide tailored recommendations for your career journey.
         </p>
@@ -130,15 +148,33 @@ function convertMarkup(guidance){
 
       {/* Input Section */}
       <div className="card">
-        <div className="card-header">
-          <h3 className="heading-tertiary flex items-center gap-2">
-            <User className="w-5 h-5" />
+        <div style={{
+          borderBottom: '1px solid #f3f4f6',
+          paddingBottom: '1.5rem',
+          marginBottom: '1.5rem'
+        }}>
+          <h3 style={{
+            fontSize: '1.25rem',
+            fontWeight: '600',
+            color: '#111827',
+            marginBottom: '1rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <User style={{ width: '1.25rem', height: '1.25rem' }} />
             Tell Us About Yourself
           </h3>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="career-input" className="form-label">
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label htmlFor="career-input" style={{
+            display: 'block',
+            marginBottom: '0.75rem',
+            fontWeight: '500',
+            color: '#374151',
+            fontSize: '0.875rem'
+          }}>
             Describe your skills, interests, experience, and career goals:
           </label>
           <textarea
@@ -149,26 +185,44 @@ function convertMarkup(guidance){
             onChange={(e) => setUserInput(e.target.value)}
             placeholder="Example: I have 3 years of experience in marketing, I'm interested in digital marketing and data analysis, I enjoy creative problem-solving, and I want to transition into a more technical role that combines marketing with data science..."
           />
-          <p className="text-sm text-gray-600 mt-2">
+          <p style={{
+            fontSize: '0.875rem',
+            color: '#6b7280',
+            marginTop: '0.5rem'
+          }}>
             💡 Tip: Be specific about your background, interests, and what you're looking for in your career.
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-4 flex-wrap">
+        <div style={{
+          display: 'flex',
+          gap: '1rem',
+          flexWrap: 'wrap'
+        }}>
           <button
             onClick={handleGetGuidance}
             disabled={loading}
-            className="btn btn-primary flex items-center gap-2"
+            className="btn btn-primary"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
           >
-            <Target className="w-4 h-4" />
+            <Target style={{ width: '1rem', height: '1rem' }} />
             {loading ? 'Generating Guidance...' : 'Get Career Guidance'}
           </button>
           
           {(userInput || guidance) && (
             <button
               onClick={handleClear}
-              className="btn btn-outline"
+              className="btn"
+              style={{
+                backgroundColor: 'white',
+                color: '#2563eb',
+                border: '1px solid #93c5fd'
+              }}
             >
               Clear All
             </button>
@@ -194,45 +248,21 @@ function convertMarkup(guidance){
 
       {/* Results Section */}
       {guidance && (
-        <div className="card animate-slide-up">
+        <div className="card">
           <div className="card-header">
-            <h3 className="heading-tertiary text-green-700">
+            <h3 className="heading-tertiary text-green-600">
               🎯 Your Personalized Career Guidance
             </h3>
           </div>
           
-          <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
-            <div className="prose max-w-none">
-              {/* Format the guidance text with proper line breaks and structure
-              {guidance.split('\n').map((paragraph, index) => {
-                if (paragraph.trim() === '') return null;
-                
-                // Check if it's a heading (starts with numbers or bullets)
-                if (paragraph.match(/^\d+\.|^[•\-\*]/)) {
-                  return (
-                    <div key={index} className="mb-3">
-                      <p className="font-semibold text-gray-800">{paragraph}</p>
-                    </div>
-                  );
-                }
-                
-                return (
-                  <p key={index} className="mb-3 text-gray-700 leading-relaxed">
-                    {paragraph}
-                  </p>
-                );
-              })} */}
-            {convertMarkup(guidance)}
-              <div className="prose max-w-none">
-  {/* <ReactMarkdown>{guidance}</ReactMarkdown> */}
-</div>
-
+          <div className="bg-green-50 p-4 rounded-md border border-green-200">
+            <div className="prose max-w-none text-sm">
+              {convertMarkup(guidance)}
             </div>
           </div>
 
-          {/* Additional Tips */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <h4 className="font-semibold text-blue-800 mb-2">💡 Next Steps:</h4>
+          <div className="mt-6 p-4 bg-blue-50 rounded-md border border-blue-200">
+            <h4 className="font-medium text-blue-800 mb-2 text-sm">💡 Next Steps:</h4>
             <ul className="text-sm text-blue-700 space-y-1">
               <li>• Save this guidance for future reference</li>
               <li>• Research the suggested career paths and companies</li>
@@ -245,11 +275,11 @@ function convertMarkup(guidance){
       )}
 
       {/* Help Section */}
-      <div className="card bg-gray-50">
+      <div className="info-box">
         <h3 className="heading-tertiary">How to Get Better Results</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Include Information About:</h4>
+            <h4 className="font-medium text-gray-800 mb-2 text-sm">Include Information About:</h4>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• Your current role and experience level</li>
               <li>• Technical and soft skills you possess</li>
@@ -259,7 +289,7 @@ function convertMarkup(guidance){
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Example Topics to Mention:</h4>
+            <h4 className="font-medium text-gray-800 mb-2 text-sm">Example Topics to Mention:</h4>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• Programming languages you know</li>
               <li>• Leadership or project management experience</li>

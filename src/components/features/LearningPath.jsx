@@ -94,9 +94,9 @@ const LearningPath = () => {
 
         <div className="space-y-4">
           {youtubeChannels.map((channel, index) => (
-            <div key={index} className="youtube-channel">
+            <div key={index} className="bg-gray-50 border border-gray-200 p-6 rounded-lg hover:bg-gray-100 transition-colors">
               <div className="flex items-start gap-3">
-                <div className="bg-red-100 p-2 rounded-lg flex-shrink-0">
+                <div className="bg-red-100 p-3 rounded-lg flex-shrink-0">
                   <Play className="w-5 h-5 text-red-600" />
                 </div>
                 <div className="flex-1">
@@ -111,7 +111,7 @@ const LearningPath = () => {
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
-                  <p className="youtube-channel p">
+                  <p className="text-gray-600 text-sm mt-3">
                     {channel.description || 'Educational content related to your learning goals.'}
                   </p>
                   {channel.contentType && (
@@ -127,7 +127,7 @@ const LearningPath = () => {
           ))}
         </div>
 
-        <div className="mt-6 p-4 bg-red-50 rounded-lg border border-red-200">
+        <div className="mt-6 bg-red-50 border border-red-200 rounded-lg p-6">
           <h4 className="font-semibold text-red-800 mb-2">📺 YouTube Learning Tips:</h4>
           <ul className="text-sm text-red-700 space-y-1">
             <li>• Subscribe to channels that match your learning style</li>
@@ -146,12 +146,12 @@ const LearningPath = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <div className="bg-primary-100 p-4 rounded-full">
-            <BookOpen className="w-8 h-8 text-primary-600" />
+          <div className="feature-icon bg-blue-100">
+            <BookOpen className="w-6 h-6 text-blue-600" />
           </div>
         </div>
         <h2 className="heading-secondary">Personalized Learning Path</h2>
-        <p className="text-body text-center max-w-2xl mx-auto">
+        <p className="text-body text-center max-w-2xl mx-auto mb-0">
           Get a customized learning roadmap with courses, resources, and YouTube channels 
           tailored to help you master the skills you want to develop.
         </p>
@@ -277,7 +277,7 @@ const LearningPath = () => {
           </div>
 
           {/* Learning Tips */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-6">
             <h4 className="font-semibold text-blue-800 mb-2">📚 Learning Success Tips:</h4>
             <ul className="text-sm text-blue-700 space-y-1">
               <li>• Set specific, measurable learning goals</li>
@@ -294,11 +294,11 @@ const LearningPath = () => {
       {renderYouTubeChannels()}
 
       {/* Learning Resources Guide */}
-      <div className="card bg-gray-50">
+      <div className="info-box">
         <h3 className="heading-tertiary">Learning Resource Types</h3>
         <div className="grid md:grid-cols-3 gap-6">
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">📚 Structured Courses</h4>
+            <h4 className="font-medium text-gray-800 mb-2 text-sm">📚 Structured Courses</h4>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• Coursera, edX, Udacity</li>
               <li>• LinkedIn Learning</li>
@@ -307,7 +307,7 @@ const LearningPath = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">🎥 Video Learning</h4>
+            <h4 className="font-medium text-gray-800 mb-2 text-sm">🎥 Video Learning</h4>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• YouTube tutorials</li>
               <li>• Khan Academy</li>
@@ -316,7 +316,7 @@ const LearningPath = () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">🛠️ Hands-on Practice</h4>
+            <h4 className="font-medium text-gray-800 mb-2 text-sm">🛠️ Hands-on Practice</h4>
             <ul className="text-sm text-gray-600 space-y-1">
               <li>• GitHub projects</li>
               <li>• Coding challenges</li>

@@ -8,9 +8,19 @@ import React from 'react';
 
 const LoadingSpinner = ({ message = "Loading..." }) => {
   return (
-    <div className="flex flex-col items-center justify-center py-8">
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '2rem 0'
+    }}>
       <div className="spinner"></div>
-      <p className="text-gray-600 mt-4 font-medium">{message}</p>
+      <p style={{
+        color: '#6b7280',
+        marginTop: '1rem',
+        fontWeight: '500'
+      }}>{message}</p>
     </div>
   );
 };

@@ -18,18 +18,44 @@ const Alert = ({ type = 'info', message, onDismiss }) => {
 
   const Icon = icons[type];
 
+  const alertStyles = {
+    info: { backgroundColor: '#eff6ff', borderLeftColor: '#60a5fa', color: '#1e40af' },
+    success: { backgroundColor: '#f0fdf4', borderLeftColor: '#4ade80', color: '#166534' },
+    error: { backgroundColor: '#fef2f2', borderLeftColor: '#f87171', color: '#991b1b' },
+    warning: { backgroundColor: '#fffbeb', borderLeftColor: '#fbbf24', color: '#92400e' }
+  };
+
   return (
-    <div className={`alert alert-${type} flex items-start gap-3`}>
-      <Icon className="w-5 h-5 mt-0.5 flex-shrink-0" />
-      <div className="flex-1">
-        <p className="mb-0">{message}</p>
+    <div style={{
+      ...alertStyles[type],
+      padding: '1.5rem',
+      borderRadius: '8px',
+      marginBottom: '1.5rem',
+      borderLeft: '4px solid',
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: '0.75rem'
+    }}>
+      <Icon style={{ width: '1.25rem', height: '1.25rem', marginTop: '0.125rem', flexShrink: 0 }} />
+      <div style={{ flex: 1 }}>
+        <p style={{ margin: 0 }}>{message}</p>
       </div>
       {onDismiss && (
         <button
           onClick={onDismiss}
-          className="flex-shrink-0 p-1 hover:bg-black/10 rounded transition-colors"
+          style={{
+            flexShrink: 0,
+            padding: '0.25rem',
+            borderRadius: '4px',
+            border: 'none',
+            background: 'transparent',
+            cursor: 'pointer',
+            transition: 'background-color 0.2s'
+          }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(0,0,0,0.1)'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
         >
-          <X className="w-4 h-4" />
+          <X style={{ width: '1rem', height: '1rem' }} />
         </button>
       )}
     </div>

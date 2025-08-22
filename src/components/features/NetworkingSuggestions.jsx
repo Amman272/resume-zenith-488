@@ -76,7 +76,7 @@ const NetworkingSuggestions = () => {
       {/* Header Section */}
       <div className="text-center mb-8">
         <div className="flex justify-center mb-4">
-          <div className="bg-primary-100 p-4 rounded-full">
+          <div className="feature-icon bg-blue-100">
             <Users className="w-8 h-8 text-primary-600" />
           </div>
         </div>
@@ -244,7 +244,7 @@ const NetworkingSuggestions = () => {
           </div>
 
           {/* Action Items */}
-          <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+          <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-6">
             <h4 className="font-semibold text-blue-800 mb-2">🎯 Immediate Action Items:</h4>
             <ul className="text-sm text-blue-700 space-y-1">
               <li>• Update your LinkedIn profile with current role and achievements</li>
@@ -258,7 +258,7 @@ const NetworkingSuggestions = () => {
       )}
 
       {/* Networking Tips and Best Practices */}
-      <div className="card bg-gray-50">
+      <div className="info-box">
         <h3 className="heading-tertiary">Networking Best Practices</h3>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
@@ -306,7 +306,7 @@ const NetworkingSuggestions = () => {
       </div>
 
       {/* Virtual Networking Tips */}
-      <div className="card bg-blue-50">
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-8 mb-8">
         <h3 className="heading-tertiary text-blue-800">💻 Virtual Networking in the Digital Age</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
@@ -333,7 +333,7 @@ const NetworkingSuggestions = () => {
       </div>
 
       {/* Networking Goals Tracker */}
-      <div className="card bg-yellow-50">
+      <div className="warning-box">
         <h3 className="heading-tertiary text-yellow-800">📊 Track Your Networking Progress</h3>
         <p className="text-yellow-700 mb-4">
           Set measurable networking goals to build your professional network systematically:
