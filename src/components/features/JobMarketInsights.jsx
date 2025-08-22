@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import { getJobMarketInsights } from '../../services/aiService';
+import { getJobMarketInsights } from '../../backend/services/aiService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { TrendingUp, DollarSign, Users, Globe, BarChart3, Filter } from 'lucide-react';

@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import { getCareerGuidance } from '../../services/aiService';
+import { getCareerGuidance } from '../../backend/services/aiService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { User, Target, Lightbulb } from 'lucide-react';

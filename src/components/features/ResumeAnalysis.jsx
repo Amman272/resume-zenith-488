@@ -5,8 +5,8 @@
  */
 
 import React, { useState } from 'react';
-import { analyzeResume } from '../../services/aiService';
-import { extractTextFromPDF, validatePDFFile, getFileInfo } from '../../services/pdfService';
+import { analyzeResume } from '../../backend/services/aiService';
+import { extractTextFromPDF, validatePDFFile, getFileInfo } from '../../backend/services/pdfService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { Upload, FileText, CheckCircle, AlertCircle } from 'lucide-react';

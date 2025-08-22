@@ -5,7 +5,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { generateInterviewQuestions, evaluateInterview } from '../../services/aiService';
+import { generateInterviewQuestions, evaluateInterview } from '../../backend/services/aiService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { 

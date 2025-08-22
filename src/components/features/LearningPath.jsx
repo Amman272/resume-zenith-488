@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import { getLearningPath, getBestYouTubeChannels } from '../../services/aiService';
+import { getLearningPath, getBestYouTubeChannels } from '../../backend/services/aiService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { BookOpen, Youtube, ExternalLink, Play } from 'lucide-react';

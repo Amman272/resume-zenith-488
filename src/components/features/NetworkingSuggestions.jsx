@@ -5,7 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import { getNetworkingSuggestions } from '../../services/aiService';
+import { getNetworkingSuggestions } from '../../backend/services/aiService';
 import LoadingSpinner from '../LoadingSpinner';
 import Alert from '../Alert';
 import { Users, Target, Briefcase, MessageCircle, Linkedin } from 'lucide-react';
