@@ -152,7 +152,7 @@ function convertMarkup(guidance){
           
           <div className="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
             <div className="prose max-w-none">
-              {/* Format the guidance text with proper line breaks and structure */}
+              {/* Format the guidance text with proper line breaks and structure
               {guidance.split('\n').map((paragraph, index) => {
                 if (paragraph.trim() === '') return null;
                 
@@ -170,7 +170,11 @@ function convertMarkup(guidance){
                     {paragraph}
                   </p>
                 );
-              })}
+              })} */}
+              <div className="prose max-w-none">
+  <ReactMarkdown>{guidance}</ReactMarkdown>
+</div>
+
             </div>
           </div>
 
