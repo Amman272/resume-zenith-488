@@ -7,12 +7,12 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // API key for Google Generative AI - In production, this should be in environment variables
-const API_KEY = "AIzaSyAEn5po-_Yz1_tMmPEbJs2yGNhrrkyo3kU";
+const API_KEY = "AIzaSyDMUeqElSxNq4pnu-5dGz1gFe7AtCrwexI";
 
 // Initialize the Google Generative AI client
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 // Get the latest Gemini model for content generation
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-pro" });
 
 export { model };
