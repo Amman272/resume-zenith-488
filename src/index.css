@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles for the AI Career Guide application */
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply font-sans antialiased min-h-screen;
+    background-image: url("https://images.unsplash.com/photo-1551434678-e076c223a692");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    background-blend-mode: lighten;
+  }
+}
+
+@layer components {
+  /* Main application container with glassmorphism effect */
+  .app-container {
+    @apply min-h-screen p-6;
+  }
+  
+  .content-wrapper {
+    @apply bg-white/95 p-8 rounded-xl shadow-xl backdrop-blur-sm max-w-7xl mx-auto;
+  }
+  
+  /* Navigation styles */
+  .nav-container {
+    @apply bg-white/95 p-4 rounded-xl mb-8 shadow-lg;
+  }
+  
+  .nav-list {
+    @apply flex flex-wrap gap-4 justify-center;
+  }
+  
+  .nav-item {
+    @apply px-4 py-2 rounded-lg cursor-pointer transition-all duration-300 font-medium;
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200 hover:-translate-y-0.5;
+  }
+  
+  .nav-item.active {
+    @apply bg-primary-900 text-white shadow-lg;
+  }
+  
+  /* Card components */
+  .card {
+    @apply bg-white/98 rounded-xl p-6 mb-6 shadow-lg border border-black/5;
+  }
+  
+  .card-header {
+    @apply border-b border-gray-200 pb-4 mb-4;
+  }
+  
+  /* Button styles */
+  .btn {
+    @apply font-semibold border-2 rounded-lg px-6 py-3 cursor-pointer transition-all duration-300;
+    @apply text-center inline-block no-underline;
+  }
+  
+  .btn:hover {
+    @apply -translate-y-0.5 shadow-lg;
+  }
+  
+  .btn:disabled {
+    @apply opacity-60 cursor-not-allowed transform-none;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-900 border-primary-900 text-white;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-primary-800 border-primary-800;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 border-gray-600 text-white;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-gray-700 border-gray-700;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border-primary-900 text-primary-900;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-primary-900 text-white;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 border-red-600 text-white;
+  }
+  
+  .btn-danger:hover {
+    @apply bg-red-700 border-red-700;
+  }
+  
+  /* Form styles */
+  .form-group {
+    @apply mb-6;
+  }
+  
+  .form-label {
+    @apply block mb-2 font-semibold text-gray-700;
+  }
+  
+  .form-input,
+  .form-textarea,
+  .form-select {
+    @apply w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-base transition-colors duration-300;
+    @apply bg-white focus:outline-none focus:border-primary-900 focus:ring-4 focus:ring-primary-900/10;
+  }
+  
+  .form-textarea {
+    @apply resize-y min-h-[120px];
+  }
+  
+  /* Interview question styles */
+  .question-card {
+    @apply bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500 mb-4;
+  }
+  
+  .answer-card {
+    @apply bg-green-50 p-6 rounded-lg border-l-4 border-green-500 mb-4;
+  }
+  
+  /* YouTube channel link styles */
+  .youtube-channel {
+    @apply flex items-start p-4 bg-gray-50 rounded-lg border border-gray-200 mb-4;
+  }
+  
+  .youtube-channel a {
+    @apply text-lg text-primary-900 no-underline font-semibold hover:underline;
+  }
+  
+  .youtube-channel p {
+    @apply text-sm text-gray-600 mt-2 mb-0;
+  }
+  
+  /* Loading spinner */
+  .spinner {
+    @apply border-4 border-gray-200 border-t-primary-900 rounded-full w-10 h-10 animate-spin mx-auto my-5;
+  }
+  
+  /* Alert styles */
+  .alert {
+    @apply p-4 rounded-lg mb-4 border-l-4;
+  }
+  
+  .alert-success {
+    @apply bg-green-50 border-green-500 text-green-800;
+  }
+  
+  .alert-error {
+    @apply bg-red-50 border-red-500 text-red-800;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-50 border-yellow-500 text-yellow-800;
+  }
+  
+  .alert-info {
+    @apply bg-blue-50 border-blue-500 text-blue-800;
+  }
+  
+  /* Progress bar */
+  .progress-bar {
+    @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden my-4;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-primary-900 transition-all duration-300;
+  }
+  
+  /* Typography */
+  .heading-primary {
+    @apply text-4xl font-bold text-primary-900 text-center mb-8 drop-shadow-sm;
+  }
+  
+  .heading-secondary {
+    @apply text-2xl font-bold text-primary-900 mb-6;
+  }
+  
+  .heading-tertiary {
+    @apply text-xl font-semibold text-primary-900 mb-4;
+  }
+  
+  .text-body {
+    @apply text-gray-700 font-medium leading-relaxed mb-4;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    @apply p-4 mx-2;
+  }
+  
+  .nav-list {
+    @apply flex-col items-center;
+  }
+  
+  .heading-primary {
+    @apply text-3xl;
+  }
+  
+  .heading-secondary {
+    @apply text-xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    @apply p-2;
+  }
+  
+  .content-wrapper {
+    @apply p-3;
+  }
+  
+  .btn {
+    @apply px-4 py-2 text-sm;
+  }
+}
